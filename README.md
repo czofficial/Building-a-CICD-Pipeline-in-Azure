@@ -26,7 +26,7 @@ make setup
 ```
 source ~/.udacity-devops/bin/activate
 ```
-5. Install dependencies (pip & requirements) in the Python virtual environment and run CI part (only installing and linting).
+5. Install dependencies (pip & requirements) in the Python virtual environment and run CI part (only linting).
 ```
 make all
 ```
