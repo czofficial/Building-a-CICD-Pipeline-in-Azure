@@ -138,3 +138,5 @@ In the latter one, you can enter the total number of users, the spawn rate and t
 
 ## Enhancements
 One of the enhancements you can do is setting up the whole CI/CD workflow in Azure DevOps Repo & Azure DevOps Pipelines alone, leaving out GitHub and GitHub Actions completely. Personally, I found it a bit confusing doing the CI part in GitHub (Actions) and the CD part in Azure DevOps (Pipelines).
+
+Adding some text.
