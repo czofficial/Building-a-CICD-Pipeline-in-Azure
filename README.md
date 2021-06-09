@@ -83,12 +83,16 @@ Successfull output:
 az webapp up -n udacity-flask-web-app -g udacity-rg
 ```
 Once, this step is successfully done, you should see the Azure App Service in your resource group (Status: running).
+
 ![flask-web-app](./screenshots/flask-web-app.png)
+
 2. Create a new project in Azure DevOps
 3. Create a new service connection in Azure DevOps (you can find it under project settings). The Azure Resource Manager comes in handy for that. Choose Service principal (automatic) if asked and establish a connection to your subscription and resource group.
 4. Go to Azure DevOps Pipelines and create one by connecting it to your GitHub repo. Once, you can configure your pipeline, choose 'Python to Linux Web App on Azure'. This will generate the appropriate YML file for the Flask web app.\
 Once, this step is successfully done, you have deployed the Flask Web App.
+
 ![pipeline](./screenshots/pipeline.png)
+
 5. Test the Flask Web App
 ```
 ./make_predict_azure_app.sh 
