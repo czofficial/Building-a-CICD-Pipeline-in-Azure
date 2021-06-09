@@ -44,7 +44,6 @@ jobs:
 
 A prerequisite for having a successfull CI workflow in GitHub Actions is a 'Makefile' and a 'requirements.txt'. In this project, I will only use pylint for code testing, not pytest. In the requirements file, you need to state the python libraries that are needed to get the Flask web app running. With this in place, a new push to the GitHub repo will automatically trigger the CI workflow in GitHub Actions (testing the app.py file). A pylint score below 10 will result in a failed CI build. That's the sign to refactor your code according to the pylint standards.
 
-
 ### Deploy the Flask Web App in Azure Cloud Shell
 1. Launch an Azure Cloud Shell Environment, create ssh keys and upload them into your GitHub account.
 ````
@@ -79,33 +78,25 @@ Successfull output:
 ![cloud-shell-prediction](./screenshots/cloud-shell_prediction.png)
 
 ### Deploy the Flask Web App to Azure App Service
-Text
-
-<TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
-
-* Project running on Azure App Service
-
-* Project cloned into Azure Cloud Shell
-
-* Passing tests that are displayed after running the `make all` command from the `Makefile`
-
-* Output of a test run
-
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
-
-* Running Azure App Service from Azure Pipelines automatic deployment
-
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
-
-```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
+1. Create an Azure App Service in your Azure Cloud Shell environment
 ```
-
-* Output of streamed log files from deployed application
-> 
+az webapp up -n udacity-flask-web-app -g udacity-rg
+```
+Once, this step is successfully done, you should see the Azure App Service in your resource group (Status: running).
+![flask-web-app](./screenshots/flask-web-app.png)
+2. Create a new project in Azure DevOps
+3. Create a new service connection in Azure DevOps (you can find it under project settings). The Azure Resource Manager comes in handy for that. Choose Service principal (automatic) if asked and establish a connection to your subscription and resource group.
+4. Go to Azure DevOps Pipelines and create one by connecting it to your GitHub repo. Once, you can configure your pipeline, choose 'Python to Linux Web App on Azure'. This will generate the appropriate YML file for the Flask web app.\
+Once, this step is successfully done, you have deployed the Flask Web App.
+![pipeline](./screenshots/pipeline.png)
+5. Test the Flask Web App
+```
+./make_predict_azure_app.sh 
+```
+6. Logs can be found here:
+```
+az webapp log tail -n udacity-flask-web-app -g udacity-rg
+```
 
 ## Enhancements
 One of the enhancements you can do is setting up the whole CI/CD workflow in Azure DevOps Repo & Azure DevOps Pipelines alone, leaving out GitHub and GitHub Actions completely. Personally, I found it a bit confusing doing the CI part in GitHub (Actions) and the CD part in Azure DevOps (Pipelines).
