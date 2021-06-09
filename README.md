@@ -44,6 +44,7 @@ jobs:
 
 A prerequisite for having a successfull CI workflow in GitHub Actions is a 'Makefile' and a 'requirements.txt'. In this project, I will only use pylint for code testing, not pytest. In the requirements file, you need to state the python libraries that are needed to get the Flask web app running. With this in place, a new push to the GitHub repo will automatically trigger the CI workflow in GitHub Actions (testing the app.py file). A pylint score below 10 will result in a failed CI build. That's the sign to refactor your code according to the pylint standards.
 
+There's also a GitHub Action badge showing the current status of the project:
 [![Python application test with Github Actions](https://github.com/czofficial/Building-a-CICD-Pipeline-in-Azure/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/czofficial/Building-a-CICD-Pipeline-in-Azure/actions/workflows/python-app.yml)
 
 ### Deploy the Flask Web App in Azure Cloud Shell
