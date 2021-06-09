@@ -112,5 +112,29 @@ az webapp log tail -n udacity-flask-web-app -g udacity-rg
 The output should look like this:
 ![logging](./screenshots/logging.png)
 
+### Locust
+Locust is an open source load-testing tool written in Python. It lets you write tests against your web application which mimic your user's behavior, and then run the tests at scale to help find bottlenecks or other performance issues.
+
+1. Install locust on your local machine
+```
+pip install locust
+```
+2. Start your Flask Web App on your local machine
+```
+python app.py
+```
+3. Start locust
+```
+locust
+```
+
+A prerequisite is a seperate locustfile.py in your directory.\
+Once your start locust, two tabs will open:
+![locust1](./screenshots/locust1.png)
+
+![locust2](./screenshots/locust2.png)
+
+In the latter one, you can enter the total number of users, the spawn rate and the host (in my case: localhost). The screenshot shows the result of the swarming (the result of the load test).
+
 ## Enhancements
 One of the enhancements you can do is setting up the whole CI/CD workflow in Azure DevOps Repo & Azure DevOps Pipelines alone, leaving out GitHub and GitHub Actions completely. Personally, I found it a bit confusing doing the CI part in GitHub (Actions) and the CD part in Azure DevOps (Pipelines).
