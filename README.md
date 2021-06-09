@@ -100,10 +100,17 @@ Once, this step is successfully done, you have deployed the Flask Web App.
 ```
 ./make_predict_azure_app.sh 
 ```
+
+The output should look like this:
+![make-prediction](./screenshots/make-prediction.png)
+
 6. Logs can be found here:
 ```
 az webapp log tail -n udacity-flask-web-app -g udacity-rg
 ```
+
+The output should look like this:
+![logging](./screenshots/logging.png)
 
 ## Enhancements
 One of the enhancements you can do is setting up the whole CI/CD workflow in Azure DevOps Repo & Azure DevOps Pipelines alone, leaving out GitHub and GitHub Actions completely. Personally, I found it a bit confusing doing the CI part in GitHub (Actions) and the CD part in Azure DevOps (Pipelines).
