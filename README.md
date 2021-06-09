@@ -102,7 +102,7 @@ Once, this step is successfully done, you have deployed the Flask Web App.
 ```
 
 The output should look like this:
-![make-prediction](./screenshots/make-prediction.png)
+![make-prediction](./screenshots/make_prediction.png)
 
 6. Logs can be found here:
 ```
